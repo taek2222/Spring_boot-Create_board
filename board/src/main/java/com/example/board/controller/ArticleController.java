@@ -26,7 +26,7 @@ public class ArticleController {
         System.out.println(article.toString());
         // 2. 리파지터리로 엔터티를 DB에 저장
         Article saved = articleRepository.save(article);
-        System.out.println(saved.toString());
+        System.out.println(saved);
         return "";
     }
 }
