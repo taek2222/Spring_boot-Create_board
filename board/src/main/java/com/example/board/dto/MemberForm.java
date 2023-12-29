@@ -18,7 +18,6 @@ public class MemberForm {
                 ", password='" + password + '\'' +
                 '}';
     }
-
     public Members toEntity() {
         return new Members(null, email, password);
     }

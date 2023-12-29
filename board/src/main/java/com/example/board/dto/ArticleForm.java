@@ -24,6 +24,4 @@ public class ArticleForm {
     }
 }
 
-// p143
-
 
