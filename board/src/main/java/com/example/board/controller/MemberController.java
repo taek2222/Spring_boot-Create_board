@@ -13,7 +13,7 @@ public class MemberController
 {
     @Autowired
     private MembersRepository membersRepository;
-    @GetMapping("/join")
+    @GetMapping("/singup")
     public String newMembersForm() { return "members/new"; }
 
     @PostMapping("/join")
@@ -25,6 +25,6 @@ public class MemberController
 
         Members saved = membersRepository.save(members);
         System.out.println(saved);
-        return "redirect:/join";
+        return "redirect:/singup";
     }
 }
