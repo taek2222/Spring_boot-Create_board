@@ -3,6 +3,8 @@ package com.example.board.controller;
 import com.example.board.dto.MemberForm;
 import com.example.board.entity.Members;
 import com.example.board.repository.MembersRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MemberController
 {
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private MembersRepository membersRepository;
     @GetMapping("/singup")
@@ -18,13 +22,13 @@ public class MemberController
 
     @PostMapping("/join")
     public String createMembers(MemberForm form) {
-        System.out.println(form.toString());
+        log.info(form.toString());
 
         Members members = form.toEntity();
-        System.out.println(members.toString());
+        log.info(members.toString());
 
         Members saved = membersRepository.save(members);
-        System.out.println(saved);
+        log.info(saved.toString());
         return "redirect:/singup";
     }
 }
