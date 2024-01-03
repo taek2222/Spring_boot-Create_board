@@ -29,6 +29,7 @@ public class MemberController
 
         Members saved = membersRepository.save(members);
         log.info(saved.toString());
+
         return "redirect:/singup";
     }
 }
