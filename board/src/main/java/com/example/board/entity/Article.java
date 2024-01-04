@@ -4,8 +4,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.NoArgsConstructor;
 
 @Entity
+
 public class Article {
     @Id
     @GeneratedValue
@@ -15,13 +17,14 @@ public class Article {
     @Column
     private String content;
 
-    public Article() {
-    }
-
     public Article(Long id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
+    }
+
+    public Article() {
+
     }
 
     @Override
