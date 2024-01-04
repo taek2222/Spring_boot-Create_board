@@ -42,4 +42,6 @@ public class MemberController
         model.addAttribute("members", membersEntity);
         return "members/show";
     }
+
+    @GetMapping
 }
