@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class MemberController
 {
@@ -43,5 +45,10 @@ public class MemberController
         return "members/show";
     }
 
-    @GetMapping
+    @GetMapping("/members")
+    public String index(Model model) {
+        ArrayList<Members> membersEntity = membersRepository.findAll();
+        model.addAttribute("membersList", membersEntity);
+        return "members/index";
+    }
 }
