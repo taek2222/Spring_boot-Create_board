@@ -9,10 +9,11 @@
     <tbody>
     {{#membersList}}
         <tr>
-            <th>{{email}}</th>
+            <th><a href="/members/{{id}}">{{email}}</a></th>
             <td>{{password}}</td>
         </tr>
     {{/membersList}}
     </tbody>
 </table>
+<a href="/singup">회원가입</a>
 {{>layouts/footer}}
