@@ -51,4 +51,11 @@ public class MemberController
         model.addAttribute("membersList", membersEntity);
         return "members/index";
     }
+
+    @GetMapping("/members/{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Members membersEntity = membersRepository.findById(id).orElse(null);
+        model.addAttribute("members", membersEntity);
+        return "members/edit";
+    }
 }
