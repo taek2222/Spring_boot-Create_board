@@ -58,4 +58,14 @@ public class MemberController
         model.addAttribute("members", membersEntity);
         return "members/edit";
     }
+
+    @PostMapping("/members/update")
+    public String update(MemberForm form) {
+        Members membersEntity = form.toEntity();
+        Members target = membersRepository.findById(membersEntity.getId()).orElse(null);
+
+        if (target != null)
+            membersRepository.save(membersEntity);
+        return "redirect:/members/" + membersEntity.getId();
+    }
 }
