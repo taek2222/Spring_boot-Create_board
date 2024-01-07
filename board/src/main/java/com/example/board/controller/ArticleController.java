@@ -59,4 +59,10 @@ public class ArticleController {
         model.addAttribute("article", articleEntity);
         return "articles/edit";
     }
+
+    @PostMapping("/articles/update")
+    public String update(ArticleForm form) {
+        log.info(form.toString());
+        return "";
+    }
 }
