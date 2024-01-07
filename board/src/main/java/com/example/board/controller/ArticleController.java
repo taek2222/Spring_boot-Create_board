@@ -63,6 +63,14 @@ public class ArticleController {
     @PostMapping("/articles/update")
     public String update(ArticleForm form) {
         log.info(form.toString());
-        return "";
+
+        Article articleEntity = form.toEntity();
+        log.info(articleEntity.toString());
+
+        Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
+
+        if (target != null)
+            articleRepository.save(articleEntity);
+        return "redirect:/articles/" + articleEntity.getId();
     }
 }
