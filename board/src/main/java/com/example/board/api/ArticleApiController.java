@@ -49,7 +49,7 @@ public class ArticleApiController {
         }
 
         target.patch(article);
-        Article updated = articleRepository.save(article);
+        Article updated = articleRepository.save(target);
         return ResponseEntity.status(HttpStatus.OK).body(updated);
     }
     //DELETE
