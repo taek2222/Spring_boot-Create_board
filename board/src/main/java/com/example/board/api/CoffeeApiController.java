@@ -53,4 +53,13 @@ public class CoffeeApiController {
     }
 
     //DELETE
+    @DeleteMapping("/api/coffee/{id}")
+    public ResponseEntity<Coffee> delete(@PathVariable Long id) {
+        Coffee target = coffeeRepository.findById(id).orElse(null);
+        if(target == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        coffeeRepository.delete(target);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }
