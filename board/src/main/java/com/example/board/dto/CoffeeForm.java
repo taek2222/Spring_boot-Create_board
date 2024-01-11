@@ -1,5 +1,7 @@
 package com.example.board.dto;
 
+import com.example.board.entity.Coffee;
+
 public class CoffeeForm {
     private Long id;
     private String name;
@@ -20,4 +22,7 @@ public class CoffeeForm {
                 '}';
     }
 
+    public Coffee toEntity() {
+        return new Coffee(id, name, price);
+    }
 }
