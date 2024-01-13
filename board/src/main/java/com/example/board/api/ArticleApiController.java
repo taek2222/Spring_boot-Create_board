@@ -2,7 +2,6 @@ package com.example.board.api;
 
 import com.example.board.dto.ArticleForm;
 import com.example.board.entity.Article;
-import com.example.board.repository.ArticleRepository;
 import com.example.board.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
