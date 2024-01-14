@@ -42,4 +42,12 @@ public class CoffeeService {
         target.patch(coffee);
         return coffeeRepository.save(target);
     }
+
+    public Coffee delete(Long id) {
+        Coffee target = coffeeRepository.findById(id).orElse(null);
+        if(target == null)
+            return null;
+        coffeeRepository.delete(target);
+        return target;
+    }
 }

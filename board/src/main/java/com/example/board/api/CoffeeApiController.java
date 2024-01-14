@@ -2,6 +2,7 @@ package com.example.board.api;
 
 import com.example.board.dto.CoffeeForm;
 import com.example.board.entity.Coffee;
+import com.example.board.repository.CoffeeRepository;
 import com.example.board.service.CoffeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,28 +41,18 @@ public class CoffeeApiController {
     //PATCH
     @PatchMapping("/api/coffee/{id}")
     public ResponseEntity<Coffee> update(@PathVariable Long id, @RequestBody CoffeeForm dto) {
-        Coffee coffee = dto.toEntity();
-
-        Coffee target = coffeeRepository.findById(id).orElse(null);
-
-        if (target == null || id != coffee.getId()) {
-            log.info("잘못된 요청 id: {}, coffee: {}", id, coffee.toString());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
-
-        target.patch(coffee);
-        Coffee updated = coffeeRepository.save(target);
-        return ResponseEntity.status(HttpStatus.OK).body(updated);
+        Coffee updated = coffeeService.update(id, dto);
+        return (updated != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(updated) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     //DELETE
     @DeleteMapping("/api/coffee/{id}")
     public ResponseEntity<Coffee> delete(@PathVariable Long id) {
-        Coffee target = coffeeRepository.findById(id).orElse(null);
-        if(target == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
-        coffeeRepository.delete(target);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        Coffee deleted = coffeeService.delete(id);
+        return (deleted != null) ?
+            ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }
