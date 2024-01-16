@@ -38,7 +38,6 @@ public class Comment {
     public void patch(CommentDto dto) {
         if (this.id != dto.getId())
             throw new IllegalArgumentException("댓글 수정 실패! 잘못된 id가 입력됐습니다.");
-
         if (dto.getNickname() != null)
             this.nickname = dto.getNickname();
         if (dto.getBody() != null)
