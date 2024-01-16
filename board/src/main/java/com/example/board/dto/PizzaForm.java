@@ -16,6 +16,6 @@ public class PizzaForm {
     private String price;
 
     public Pizza toEntity() {
-        return new Pizza(name, price);
+        return new Pizza(id, name, price);
     }
 }

@@ -20,3 +20,9 @@ INSERT INTO members(id, email, password) VALUES (3, 'oot309@navr.com', 'kks2321s
 INSERT INTO coffee(name, price) VALUES ('아메리카노', '4500');
 INSERT INTO coffee(name, price) VALUES ('라떼', '5000');
 INSERT INTO coffee(name, price) VALUES ('카페 모카', '5500');
+
+INSERT INTO pizza(name, price) VALUES ('페페로니 피자', '25,900');
+INSERT INTO pizza(name, price) VALUES ('불고기 피자', '29,900');
+INSERT INTO pizza(name, price) VALUES ('고구마 피자', '30,900');
+INSERT INTO pizza(name, price) VALUES ('포테이토 피자', '27,900');
+INSERT INTO pizza(name, price) VALUES ('치즈 피자', '23,900');
