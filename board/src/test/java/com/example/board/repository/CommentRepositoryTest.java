@@ -1,7 +1,8 @@
 package com.example.board.repository;
 
-import com.example.board.entity.Article;
-import com.example.board.entity.Comment;
+import com.example.Practice.entity.Article;
+import com.example.Practice.entity.Comment;
+import com.example.Practice.repository.CommentRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

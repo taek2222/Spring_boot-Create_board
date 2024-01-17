@@ -1,7 +1,8 @@
 package com.example.board.service;
 
-import com.example.board.dto.ArticleForm;
-import com.example.board.entity.Article;
+import com.example.Practice.dto.ArticleForm;
+import com.example.Practice.entity.Article;
+import com.example.Practice.service.ArticleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
